@@ -2,7 +2,9 @@ package com.example.taxi20
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import androidx.core.view.isEmpty
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -35,5 +37,27 @@ class PassengerSignInActivity : AppCompatActivity() {
         confirmDataButton = findViewById(R.id.passengerConfirmDataButton)
 
         toLogInButton = findViewById(R.id.passengerLogInButton)
+    }
+
+    private fun validateSignInDataPassenger() : Boolean{
+        return when {
+            passwordTextInputLayout.isEmpty() -> {
+                Log.i("SignInException", "Password is empty")
+                false
+            }
+            passwordTextInputEditText.length() < 8 -> {
+                Log.i("SignInException", "Password length less then 8")
+                false
+            }
+            (passwordTextInputLayout as String).equals(confirmPasswordTextInputLayout as String) -> {
+                Log.i("ConfirmException", "Password is not equal confirm password lane")
+                false
+            }
+            else -> {
+                Log.i("SignInException", "Password is OK")
+                Log.i("ConfirmException", "Confirmation is OK")
+                true
+            }
+        }
     }
 }
