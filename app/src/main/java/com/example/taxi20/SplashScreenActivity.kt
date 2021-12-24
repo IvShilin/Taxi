@@ -1,5 +1,6 @@
 package com.example.taxi20
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,9 @@ import java.lang.Exception
 import java.lang.Thread.sleep
 import kotlin.concurrent.thread
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
+    @SuppressLint("CustomSplashScreen")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
