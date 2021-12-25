@@ -10,10 +10,10 @@ class ChooseModeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_choose_mode)
     }
 
-    fun goToPassengerSignIn() {
+    fun goToPassengerSignIn(view: android.view.View) {
         startActivity(Intent(this, PassengerSignInActivity::class.java))
     }
-    fun goToDriverSignIn() {
+    fun goToDriverSignIn(view: android.view.View) {
         startActivity(Intent(this, DriverSignInActivity::class.java))
     }
 }
