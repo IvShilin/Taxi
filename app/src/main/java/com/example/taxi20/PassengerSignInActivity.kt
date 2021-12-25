@@ -25,7 +25,8 @@ lateinit private var confirmDataButton: Button
 
 lateinit private var toLogInButton: Button
 
-class PassengerSignInActivity : AppCompatActivity() {
+
+class PassengerSignInActivity : AppCompatActivity(), ValidationData{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passenger_sign_in)
@@ -47,28 +48,16 @@ class PassengerSignInActivity : AppCompatActivity() {
         toLogInButton = findViewById(R.id.passengerLogInButton)
     }
 
-    private fun validateSignInPasswordPassenger() : Boolean{
-        return when {
-            passwordTextInputEditText.length() < 8 -> {
-                Log.i("SignInException", "Password length less then 8")
-                passwordTextInputEditText.setError("Password less then 8 symbols. Please, input longer password")
-                false
-            }
-            passwordTextInputLayout.editText?.text.toString().trim()
-                    !=
-                    confirmPasswordTextInputLayout.editText?.text.toString().trim() -> {
-                Log.i("ConfirmException", "Password is not equal confirm password lane")
-                confirmPasswordTextInputEditText.setError("Passwords is not equal. Please, try to input correct passwords")
-                false
-            }
-            else -> {
-                Log.i("SignInException", "Password is OK")
-                true
-            }
+    fun confirmSignIn(view: android.view.View) {
+        if (validateSignEMailPassenger() and validateSignInNamePassenger() and validateSignInPasswordPassenger()){
+            Log.i("ConfirmationInfo", "Confirmation is OK")
+            Toast.makeText(this, "Confirmation is OK", Toast.LENGTH_SHORT).show()
+
+            // Add here "startActivity"
         }
     }
 
-    private fun validateSignInNamePassenger() : Boolean{
+    override fun validateSignInNamePassenger() : Boolean{
         return when {
             nameTextInputEditText.length() == 0 -> {
                 Log.i("SignInException", "Name line is empty")
@@ -87,7 +76,7 @@ class PassengerSignInActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateSignEMailPassenger() : Boolean{
+    override fun validateSignEMailPassenger() : Boolean{
         return when {
             mailTextInputEditText.length() == 0 -> {
                 Log.i("SignInException", "Email is empty")
@@ -101,12 +90,24 @@ class PassengerSignInActivity : AppCompatActivity() {
         }
     }
 
-    fun confirmSignIn(view: android.view.View) {
-        if (validateSignEMailPassenger() and validateSignInNamePassenger() and validateSignInPasswordPassenger()){
-            Log.i("ConfirmationInfo", "Confirmation is OK")
-            Toast.makeText(this, "Confirmation is OK", Toast.LENGTH_SHORT).show()
-
-            // Add here "startActivity"
+    override fun validateSignInPasswordPassenger() : Boolean{
+        return when {
+            passwordTextInputEditText.length() < 8 -> {
+                Log.i("SignInException", "Password length less then 8")
+                passwordTextInputEditText.setError("Password less then 8 symbols. Please, input longer password")
+                false
+            }
+            passwordTextInputLayout.editText?.text.toString().trim()
+                    !=
+                    confirmPasswordTextInputLayout.editText?.text.toString().trim() -> {
+                Log.i("ConfirmException", "Password is not equal confirm password lane")
+                confirmPasswordTextInputEditText.setError("Passwords is not equal. Please, try to input correct passwords")
+                false
+            }
+            else -> {
+                Log.i("SignInException", "Password is OK")
+                true
+            }
         }
     }
 }
