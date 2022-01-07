@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Taxi20">
         <activity
+            android:name=".DriverLogInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PassengerLogInActivity"
+            android:exported="false" />
+        <activity
             android:name=".DriverSignInActivity"
             android:exported="false" />
         <activity

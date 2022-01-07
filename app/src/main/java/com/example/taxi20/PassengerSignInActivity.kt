@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.view.isEmpty
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-lateinit private var mailTextInputLayout: TextInputLayout
 lateinit private var mailTextInputEditText: TextInputEditText
 
-lateinit private var nameTextInputLayout: TextInputLayout
 lateinit private var nameTextInputEditText: TextInputEditText
 
 lateinit private var passwordTextInputLayout: TextInputLayout
@@ -21,35 +18,24 @@ lateinit private var passwordTextInputEditText: TextInputEditText
 lateinit private var confirmPasswordTextInputLayout: TextInputLayout
 lateinit private var confirmPasswordTextInputEditText: TextInputEditText
 
-lateinit private var confirmDataButton: Button
-
-lateinit private var toLogInButton: Button
-
-
 class PassengerSignInActivity : AppCompatActivity(), ValidationData{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passenger_sign_in)
 
-        mailTextInputLayout = findViewById(R.id.passengerSignInEMailTextInputLayout)
         mailTextInputEditText = findViewById(R.id.passengerSignInEMailTextInputEditText)
 
-        nameTextInputLayout = findViewById(R.id.passengerSignInNameTextInputLayout)
         nameTextInputEditText = findViewById(R.id.passengerSignInNameTextInputEditText)
 
         passwordTextInputLayout = findViewById(R.id.passengerSignInPasswordTextInputLayout)
-        passwordTextInputEditText = findViewById(R.id.password)
+        passwordTextInputEditText = findViewById(R.id.passengerSignInPasswordTextInputEditText)
 
         confirmPasswordTextInputLayout = findViewById(R.id.passengerSignInConfirmPasswordTextInputLayout)
         confirmPasswordTextInputEditText = findViewById(R.id.passengerSignInConfirmPasswordTextEditText)
-
-        confirmDataButton = findViewById(R.id.passengerConfirmDataButton)
-
-        toLogInButton = findViewById(R.id.passengerLogInButton)
     }
 
-    fun confirmSignIn(view: android.view.View) {
-        if (validateSignEMailPassenger() and validateSignInNamePassenger() and validateSignInPasswordPassenger()){
+    fun passengerConfirmSignIn(view: android.view.View) {
+        if (validateEMail() and validateName() and validatePassword()){
             Log.i("ConfirmationInfo", "Confirmation is OK")
             Toast.makeText(this, "Confirmation is OK", Toast.LENGTH_SHORT).show()
 
@@ -57,7 +43,9 @@ class PassengerSignInActivity : AppCompatActivity(), ValidationData{
         }
     }
 
-    override fun validateSignInNamePassenger() : Boolean{
+
+    //Implements interface
+    override fun validateName() : Boolean{
         return when {
             nameTextInputEditText.length() == 0 -> {
                 Log.i("SignInException", "Name line is empty")
@@ -76,7 +64,7 @@ class PassengerSignInActivity : AppCompatActivity(), ValidationData{
         }
     }
 
-    override fun validateSignEMailPassenger() : Boolean{
+    override fun validateEMail() : Boolean{
         return when {
             mailTextInputEditText.length() == 0 -> {
                 Log.i("SignInException", "Email is empty")
@@ -90,7 +78,7 @@ class PassengerSignInActivity : AppCompatActivity(), ValidationData{
         }
     }
 
-    override fun validateSignInPasswordPassenger() : Boolean{
+    override fun validatePassword() : Boolean{
         return when {
             passwordTextInputEditText.length() < 8 -> {
                 Log.i("SignInException", "Password length less then 8")

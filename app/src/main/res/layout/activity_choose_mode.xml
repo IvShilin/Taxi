@@ -15,21 +15,26 @@
         android:layout_centerInParent="true">
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/passengerLogInButton"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="I am passenger!"
             android:onClick="goToPassengerSignIn"
+            android:layout_gravity="center_horizontal"
+            app:cornerRadius="10dp"
             />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/driverLogInButton"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:text="I am driver"
-            android:onClick="goToDriverSignIn"/>
+            android:onClick="goToDriverSignIn"
+            android:layout_gravity="center_horizontal"
+            app:cornerRadius="10dp"
+            />
     </LinearLayout>
 </RelativeLayout>

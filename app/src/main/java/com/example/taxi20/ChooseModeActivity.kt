@@ -11,9 +11,10 @@ class ChooseModeActivity : AppCompatActivity() {
     }
 
     fun goToPassengerSignIn(view: android.view.View) {
-        startActivity(Intent(this, PassengerSignInActivity::class.java))
+        startActivity(Intent(this, PassengerLogInActivity::class.java))
     }
+
     fun goToDriverSignIn(view: android.view.View) {
-        startActivity(Intent(this, DriverSignInActivity::class.java))
+        startActivity(Intent(this, DriverLogInActivity::class.java))
     }
 }

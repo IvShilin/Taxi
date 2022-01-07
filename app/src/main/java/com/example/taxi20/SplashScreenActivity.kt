@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
             try {
                 sleep(2000)
             } catch (e: Exception) {
-                Log.i("slepp", "Sleep with exception!")
+                Log.i("SplashScreenException", "Sleep with exception!")
             } finally {
                 startActivity(Intent(this, ChooseModeActivity::class.java))
             }

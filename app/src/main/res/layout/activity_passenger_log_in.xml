@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PassengerLogInActivity"
+    android:orientation="vertical"
+    android:layout_centerVertical="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="0.9"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="LOG IN"
+                    android:textColor="@color/black"
+                    android:textSize="80sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passengerLogInEMailTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                app:errorEnabled="true"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusBottomEnd="5dp"
+                android:layout_gravity="center_horizontal"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="1dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passengerLogInEMailTextInputEditText"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"/>
+
+        </LinearLayout>
+
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.05"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passengerLogInPasswordTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:passwordToggleEnabled="true"
+                app:boxCornerRadiusTopStart="5dp"
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusBottomStart="5dp"
+                app:boxCornerRadiusBottomEnd="5dp"
+                android:layout_gravity="center_horizontal"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="1dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passengerLogInPasswordTextInputEditText"
+                    android:hint="Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+             <RelativeLayout
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="0.05"/>
+
+         </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:textStyle="bold"
+            android:id="@+id/passengerConfirmLogInDataButton"
+            android:text="Log in"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:onClick="passengerConfirmLogIn"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            app:cornerRadius="10dp"
+            />
+
+    <com.google.android.material.button.MaterialButton
+        android:textStyle="bold"
+        android:id="@+id/passengerSignInButton"
+        android:backgroundTint="@color/teal_200"
+        android:text="Tap to sign in"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="goToSignInPassenger"
+        app:cornerRadius="10dp"
+        />
+    </LinearLayout>
+
+
+</LinearLayout>
